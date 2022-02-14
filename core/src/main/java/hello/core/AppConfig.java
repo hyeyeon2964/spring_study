@@ -16,18 +16,22 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService(){ //멤버서비스 역할
+
         return new MemberServiceImpl(memberRepository()); //memberServiceImpl 사용
     }
     @Bean
     public  MemberRepository memberRepository() { //멤버레파지토리 역할
+
         return new MemoryMemberRepository(); // 메모리로 사용
     }
     @Bean
     public OrderService orderService(){ //오더서비스 역할
+
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
     @Bean
     public DiscountPolicy discountPolicy() {
+
         return new RateDiscountPolicy();
     }
 }
